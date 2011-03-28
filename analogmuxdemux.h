@@ -26,6 +26,7 @@ class AnalogDeMux
       AnalogDeMux(int S0, int S1, int S2, int writepin);
       void analogWrite(int value);
       void analogWrite(int pin, int value);
+      void selectPin(int pin);
     
     private:
       int _writepin; // which input pin is being used by the arduino to write state
