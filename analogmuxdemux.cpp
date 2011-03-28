@@ -23,6 +23,8 @@ void AnalogMux::selectPin(int pin) {
   // sets the required pin on using selection pins
   // there is no error checking on this so if you go over 7 it will break
 
+  _currentPin = pin;
+  writeSelectionPins(_S0, _S1, _S2, pin);
 
 }
 
@@ -35,8 +37,8 @@ int AnalogMux::analogRead() {
 int AnalogMux::analogRead(int pin) {
   // this method calculates which pin to read, switches to it and then returns
   // the currently value
-  
-  return 0;
+  selectPin(pin);
+  return AnalogMux::analogRead();
 }
 
 
@@ -56,7 +58,9 @@ AnalogDeMux::AnalogDeMux(int S0, int S1, int S2, int writepin){
 
 void AnalogDeMux::selectPin(int pin) {
   // sets the required pin on using selection pins
-  // there is no error checking if you go over 7 it will break
+  // there is no error checking on this so if you go over 7 it will break
+
+
 }
 
 void AnalogDeMux::analogWrite(int value) {
@@ -68,7 +72,15 @@ void AnalogDeMux::analogWrite(int pin, int value) {
   // write the value to the specified pin
 }
   
-  
+
+// helper functions
+void writeSelectionPins(int S0, int S1, int S2, int pin) {
+
+  digitalWrite(S0, (pin & 0x01)); // set the lowest bit
+  digitalWrite(S1, ((pin>>1) & 0x01)); // set the middle bit
+  digitalWrite(S2, ((pin>>2) & 0x01)); // set the highest bit.
+
+}
   
   
   

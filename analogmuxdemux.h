@@ -36,6 +36,7 @@ class AnalogDeMux
       int _currentPin; // which pin on the multiplexer are we looking at.
 };
 
+void writeSelectionPins(int S0, int S1, int S2, int pin);
 
 #endif
 
