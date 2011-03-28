@@ -3,4 +3,8 @@ Version 0.1 (28, March 2011)
 
 * created the basic scaffolding of the library and got it to compile in
 arduino IDE.
+* stubbed out broad functions
+* compiles in standard IDE
+
+TODO: Set up examples
 
