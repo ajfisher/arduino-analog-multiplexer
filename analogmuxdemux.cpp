@@ -4,6 +4,19 @@
 AnalogMux::AnalogMux(int S0, int S1, int S2, int readpin){
   // constructor
 
+  pinMode(S0, OUTPUT);
+  pinMode(S1, OUTPUT);
+  pinMode(S2, OUTPUT);
+  
+  _S0 = S0;
+  _S1 = S1;
+  _S2 = S2;
+  
+  _readpin = readpin; // don't need to set this as it's an analog pin
+  
+  _currentPin = 0;
+
+
 }
 
 void AnalogMux::selectPin(int pin) {
@@ -28,6 +41,16 @@ int AnalogMux::analogRead(int pin) {
 
 
 AnalogDeMux::AnalogDeMux(int S0, int S1, int S2, int writepin){
+
+  pinMode(S0, OUTPUT);
+  pinMode(S1, OUTPUT);
+  pinMode(S2, OUTPUT);
+  
+  _S0 = S0;
+  _S1 = S1;
+  _S2 = S2;
+  
+  _writepin = writepin; // don't need to set this as it's an analog pin
 
 }
 
