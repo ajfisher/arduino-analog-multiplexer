@@ -73,9 +73,18 @@ amux.AnalogRead(); or demux.AnalogWrite(value);
 
 With no pin specified. 
 
+Example Schematics
+==================
+
+Demultiplexer (writing)
+-----------------------
+
+example-write-schematic.fz (fritzing example)
+
+
 TODO:
 -----
 
-Write examples harness and to document the usage instructions properly
+Write examples for analog read and write
 Make code a little less repetitive
-Make the code deal with switching between MUX and DEMUX properly
+Make the code deal with switching between MUX and DEMUX
