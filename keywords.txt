@@ -1,5 +1,5 @@
-AnalogMux   KEYWORD1
-AnalogRead  KEYWORD2
-AnalogDeMux KEYWORD1
-AnalogWrite KEYWORD2
-SelectPin   KEYWORD2
+AnalogMux	KEYWORD1
+AnalogRead	KEYWORD2
+AnalogDeMux	KEYWORD1
+AnalogWrite	KEYWORD2
+SelectPin	KEYWORD2
