@@ -20,7 +20,7 @@ See the fritzing circuit in the code library for set up.
 AnalogDeMux admux(4,3,2, WRITEPIN);
 
 void setup() {  
-  pinMode(WRITEPIN OUTPUT);
+  pinMode(WRITEPIN, OUTPUT);
   delay(1000);
 }
 
@@ -32,6 +32,10 @@ void loop() {
     admux.SelectPin(pinno); // choose the pin you want to send signal to off the DeMux
     for (int i=0; i<255; i++){
       admux.AnalogWrite(i); // simply pass an analog value as per normal.
+      delay(10);
+    }
+    for (int i=255; i>=0; i--) {
+      admux.AnalogWrite(pinno, i); // different way of using analogWrite specifying pin
       delay(10);
     }
   }
