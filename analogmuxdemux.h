@@ -8,9 +8,9 @@ class AnalogMux
 {
     public:
       AnalogMux(int S0, int S1, int S2, int readpin);
-      int analogRead(int pin);
-      int analogRead();
-      void selectPin(int pin);
+      int AnalogRead(int pin);
+      int AnalogRead();
+      void SelectPin(int pin);
     private:
       int _readpin; // which input pin is being used by the arduino to read state
       int _S0; // MSB selector
@@ -24,9 +24,9 @@ class AnalogDeMux
 {
     public:
       AnalogDeMux(int S0, int S1, int S2, int writepin);
-      void analogWrite(int value);
-      void analogWrite(int pin, int value);
-      void selectPin(int pin);
+      void AnalogWrite(int value);
+      void AnalogWrite(int wpin, int value);
+      void SelectPin(int pin);
     
     private:
       int _writepin; // which input pin is being used by the arduino to write state
@@ -36,7 +36,7 @@ class AnalogDeMux
       int _currentPin; // which pin on the multiplexer are we looking at.
 };
 
-void writeSelectionPins(int S0, int S1, int S2, int pin);
+void WriteSelectionPins(int S0, int S1, int S2, int pin);
 
 #endif
 

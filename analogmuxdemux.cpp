@@ -17,25 +17,25 @@ AnalogMux::AnalogMux(int S0, int S1, int S2, int readpin){
   _currentPin = 0;
 }
 
-void AnalogMux::selectPin(int pin) {
+void AnalogMux::SelectPin(int pin) {
   // sets the required pin on using selection pins
   // there is no error checking on this so if you go over 7 it will break
 
   _currentPin = pin;
-  writeSelectionPins(_S0, _S1, _S2, pin);
+  WriteSelectionPins(_S0, _S1, _S2, pin);
 
 }
 
-int AnalogMux::analogRead() {
+int AnalogMux::AnalogRead() {
   // this method reads the currently selected pin and returns the value
   return analogRead(_readpin);
   
 }
-int AnalogMux::analogRead(int pin) {
+int AnalogMux::AnalogRead(int pin) {
   // this method calculates which pin to read, switches to it and then returns
   // the currently value
-  selectPin(pin);
-  return AnalogMux::analogRead();
+  SelectPin(pin);
+  return AnalogMux::AnalogRead();
 }
 
 
@@ -53,32 +53,30 @@ AnalogDeMux::AnalogDeMux(int S0, int S1, int S2, int writepin){
 
 }
 
-void AnalogDeMux::selectPin(int pin) {
+void AnalogDeMux::SelectPin(int pin) {
   // sets the required pin on using selection pins
   // there is no error checking on this so if you go over 7 it will break
 
   _currentPin = pin;
-  writeSelectionPins(_S0, _S1, _S2, pin);
+  WriteSelectionPins(_S0, _S1, _S2, pin);
 
 }
 
-void AnalogDeMux::analogWrite(int value) {
+void AnalogDeMux::AnalogWrite(int value) {
   // writes the value to the pin currently used for output - no checking
   // for correctness on this
-
   analogWrite(_writepin, value);
 }
 
-void AnalogDeMux::analogWrite(int pin, int value) {
+void AnalogDeMux::AnalogWrite(int wpin, int value) {
   // write the value to the specified pin - no checking for correctness of this
-  
-  selectPin(pin);
-  AnalogDeMux::analogWrite(value);
+  SelectPin(wpin);
+  AnalogDeMux::AnalogWrite(value);
 }
   
 
 // helper functions
-void writeSelectionPins(int S0, int S1, int S2, int pin) {
+void WriteSelectionPins(int S0, int S1, int S2, int pin) {
 
   digitalWrite(S0, (pin & 0x01)); // set the lowest bit
   digitalWrite(S1, ((pin>>1) & 0x01)); // set the middle bit
