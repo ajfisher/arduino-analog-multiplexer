@@ -1,3 +1,10 @@
+Version 0.2 (1, May 2011)
+-------------------------
+
+* fixed a range of issues with the Demux side of things - not least a namespace
+issue with analogWrite
+* created examples for demux side including fritzing examples and code examples
+
 Version 0.1 (28, March 2011)
 ----------------------------
 
