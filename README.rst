@@ -38,7 +38,7 @@ eg: AnalogMux amux(3, 4, 5, 0);
 
 Reading a specific pin from the IC
 
-int val = amux.analogRead(int pin_no);
+int val = amux.AnalogRead(int pin_no);
 
 analogRead() takes the number of the pin to read on the IC (between 0 and 7) and returns a value between 0 and 1023 based on the 8-bit resolution of the Arduino analog input pin. 
 
@@ -52,9 +52,11 @@ AnalogDeMux demux(int S0, int S1, int S2, int arduino_analog_output);
 
 eg: AnalogDeMux demux(3, 4, 5, 11);
 
+Note that given you are using an ANALOG demux, you'd probably want to make sure you're using a PWM pin so you can use it.
+
 Writing a specific pin to the IC
 
-demux.analogWrite(int pin_no, int value);
+demux.AnalogWrite(int pin_no, int value);
 
 analogWrite writes a value to the specified pin and can set a value beween 0 and 255 as per normal analog output.
 
@@ -63,11 +65,11 @@ Setting the selection pin for read or write:
 
 Sometimes you might want to set a particular pin on the multiplexer and leave it there for a while for some reason. In this instance you use the selectPin() function.
 
-amux.selectPin(int pin);
+amux.SelectPin(int pin);
 
 You can then read or write from the multiplexer using simply:
 
-amux.analogRead();
+amux.AnalogRead(); or demux.AnalogWrite(value);
 
 With no pin specified. 
 
