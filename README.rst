@@ -1,7 +1,6 @@
-This library is used in order to abstract away a few of the details to do
-with analog multiplexing and demultiplexing. It assumes the following:
+This library is used in order to abstract away a few of the details to do with analog multiplexing and demultiplexing. It assumes the following:
 
-- The multiplexer is analog and is compatible with the 4051 type (ie: 8 analog inputs or outputs, selected by setting HIGH/LOW on 3 digital input pins for 3 bit resolu ion and an input selection pin active LOW)
+- The multiplexer is analog and is compatible with the 4051 type (ie: 8 analog inputs or outputs, selected by setting HIGH/LOW on 3 digital input pins for 3 bit resolution and an input selection pin active LOW)
 
 - At this point the library assumes that the IO selector is set high or low by an external method not related to this library. In most instances it's typical to set the component for either input or output not flipping back and forth. This will be resolved in a later version.
 
