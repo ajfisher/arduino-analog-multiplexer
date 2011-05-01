@@ -78,12 +78,12 @@ Example Schematics
 Demultiplexer (writing)
 -----------------------
 
-example-write-schematic.fz (fritzing example)
-Demux LED (Arduino code example)
+- example-write-schematic.fz (fritzing example)
+- Demux LED (Arduino code example)
 
 TODO:
 -----
 
-Write examples for analog read and write
-Make code a little less repetitive
-Make the code deal with switching between MUX and DEMUX
+- Write examples for analog read and write
+- Make code a little less repetitive
+- Make the code deal with switching between MUX and DEMUX
