@@ -1,6 +1,8 @@
 #include "WProgram.h"
 #include "analogmuxdemux.h"
 
+// parts adapted from elements at: http://tomekness.files.wordpress.com/2007/02/analog_multiplexer_demultiplexer_4051.pdf
+
 AnalogMux::AnalogMux(int S0, int S1, int S2, int readpin){
   // constructor
 
