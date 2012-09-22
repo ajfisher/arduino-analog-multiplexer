@@ -4,9 +4,9 @@
 
 #include "Arduino.h"
 
-#define AMDM_S0 2
+#define AMDM_S0 4
 #define AMDM_S1 3
-#define AMDM_S2 4
+#define AMDM_S2 2
 
 class AnalogMux
 {

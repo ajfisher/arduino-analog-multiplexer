@@ -34,7 +34,7 @@ Whether you multiplex or demultiplex the format for instantiating an object is t
 
 eg: 
 
-    AnalogMux amux(2, 3, 4, 0);
+    AnalogMux amux(4, 3, 2, 0);
 
 or 
 
@@ -44,7 +44,7 @@ eg:
 
     AnalogMux amux(0);
 
-The first constructor type specifies the values for S0, S1, S2 on the 4051 however the second version assumes S0=2, S1=3, S2=4 for digital outs.
+The first constructor type specifies the values for S0, S1, S2 on the 4051 however the second version assumes S0=4, S1=3, S2=3 for digital outs.
 
 ### Reading a specific pin from the IC
 
@@ -60,7 +60,7 @@ analogRead() takes the number of the pin to read on the IC (between 0 and 7) and
 
 eg: 
 
-    AnalogDeMux demux(2, 3, 4, 11);
+    AnalogDeMux demux(4, 3, 2, 11);
 
 or
 
@@ -70,7 +70,7 @@ eg:
 
     AnalogDeMux demux(11);
 
-The first constructor type specifies the values for S0, S1, S2 on the 4051 however the second version assumes S0=2, S1=3, S2=4 for digital outs.
+The first constructor type specifies the values for S0, S1, S2 on the 4051 however the second version assumes S0=4, S1=3, S2=2 for digital outs.
 
 Note that given you are using an ANALOG demux, you'd probably want to make sure you're using a PWM pin so you can use it.
 
