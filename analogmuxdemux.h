@@ -4,23 +4,24 @@
 
 #include "Arduino.h"
 
-#define AMDM_S0 4
-#define AMDM_S1 3
-#define AMDM_S2 2
+#define AMDM_MS0 4
+#define AMDM_MS1 3
+#define AMDM_MS2 2
 
 class AnalogMux
 {
     public:
-      AnalogMux(int S0, int S1, int S2, int readpin);
+      AnalogMux(int MS0, int MS1, int MS2, int readpin);
+      AnalogMux(int MS0, int MS1, int MS2, int SS0, int SS1, int SS2, int readpin);
       AnalogMux(int readpin);
       int AnalogRead(int pin);
       int AnalogRead();
       void SelectPin(int pin);
     private:
       int _readpin; // which input pin is being used by the arduino to read state
-      int _S0; // MSB selector
-      int _S1; // Centre bit selector
-      int _S2; // LSB selector
+      int _MS0; // MSB selector
+      int _MS1; // Centre bit selector
+      int _MS2; // LSB selector
       int _currentPin; // which pin on the multiplexer are we looking at.
 };
 
@@ -28,7 +29,7 @@ class AnalogMux
 class AnalogDeMux
 {
     public:
-      AnalogDeMux(int S0, int S1, int S2, int writepin);
+      AnalogDeMux(int MS0, int MS1, int MS2, int writepin);
       AnalogDeMux(int writepin);
       void AnalogWrite(int value);
       void AnalogWrite(int wpin, int value);
@@ -36,13 +37,13 @@ class AnalogDeMux
     
     private:
       int _writepin; // which input pin is being used by the arduino to write state
-      int _S0; // MSB selector
-      int _S1; // Centre bit selector
-      int _S2; // LSB selector
+      int _MS0; // MSB selector
+      int _MS1; // Centre bit selector
+      int _MS2; // LSB selector
       int _currentPin; // which pin on the multiplexer are we looking at.
 };
 
-void WriteSelectionPins(int S0, int S1, int S2, int pin);
+void WriteSelectionPins(int MS0, int MS1, int MS2, int pin);
 
 #endif
 
