@@ -94,11 +94,29 @@ You can then read or write from the multiplexer using simply:
 
 With no pin specified. 
 
-#Example Schematics
+# Multiple multiplexers
+
+At this stage this only works with Mux not DeMux. Honestly if you want to do this with DeMux you're probably better with a shift register.
+
+Using daisy chained 4051s you can actually get a large number of analog inputs (up to 64) by setting the output of a "slave" 4051 to be the input of the "master" 4051 which in turn outputs the value to the arduino analog input.
+
+To do this you need to sacrifice another 3 IO pins however from 2 to 8 slaves can all be run off the same 3 additional pins.
+
+To make this work, plug your master into 2,3,4 per normal, connect all of the slaves' select lines to 5,6,7 and then using the consutructor that requires passing across the slave select lines as well.
+
+    AnalogMux amx(4,3,2, 7,6,5, READPIN);
+
+At this point it pretty much works as normal. Note that your master can't be addressed directly now, however you get to have up to 64 analog inputs.
+
+#Examples
 ##Demultiplexer (writing)
 
 - example-write-schematic.fz (fritzing example)
 - Demux LED (Arduino code example)
+
+##Multiplexer (reading)
+
+- Mux Pot (Arduino code example)
 
 #TODO:
 

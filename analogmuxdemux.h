@@ -8,6 +8,10 @@
 #define AMDM_MS1 3
 #define AMDM_MS2 2
 
+#define AMDM_SS0 7
+#define AMDM_SS1 6
+#define AMDM_SS2 5
+
 class AnalogMux
 {
     public:
@@ -18,11 +22,15 @@ class AnalogMux
       int AnalogRead();
       void SelectPin(int pin);
     private:
-      int _readpin; // which input pin is being used by the arduino to read state
-      int _MS0; // MSB selector
-      int _MS1; // Centre bit selector
-      int _MS2; // LSB selector
-      int _currentPin; // which pin on the multiplexer are we looking at.
+      int   _readpin; // which input pin is being used by the arduino to read state
+      int   _MS0;   // MSB selector for the master controller
+      int   _MS1;   // Centre bit selector for the master controller
+      int   _MS2;   // LSB selector for the master controller
+      int   _SS0;   // MSB selector for the slave controller
+      int   _SS1;   // Centre bit selector for the slave controller
+      int   _SS2;   // LSB selector for the slave controller
+      int   _currentPin; // which pin on the multiplexer are we looking at.
+      bool  _ms;    // are we a master slave arrangement
 };
 
 
@@ -30,6 +38,7 @@ class AnalogDeMux
 {
     public:
       AnalogDeMux(int MS0, int MS1, int MS2, int writepin);
+      AnalogDeMux(int MS0, int MS1, int MS2, int SS0, int SS1, int SS2, int writepin);
       AnalogDeMux(int writepin);
       void AnalogWrite(int value);
       void AnalogWrite(int wpin, int value);
@@ -37,13 +46,16 @@ class AnalogDeMux
     
     private:
       int _writepin; // which input pin is being used by the arduino to write state
-      int _MS0; // MSB selector
-      int _MS1; // Centre bit selector
-      int _MS2; // LSB selector
+      int _MS0; // MSB selector for the master controller
+      int _MS1; // Centre bit selector for the master controller
+      int _MS2; // LSB selector for the master controller
+      int _SS0; // MSB selector for the slave controller
+      int _SS1; // Centre bit selector for the slave controller
+      int _SS2; // LSB selector for the slave controller
       int _currentPin; // which pin on the multiplexer are we looking at.
 };
 
-void WriteSelectionPins(int MS0, int MS1, int MS2, int pin);
+void WriteSelectionPins(int S0, int S1, int S2, int pin);
 
 #endif
 

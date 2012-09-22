@@ -18,6 +18,25 @@ AnalogMux::AnalogMux(int MS0, int MS1, int MS2, int readpin){
   _readpin = readpin; // don't need to set this as it's an analog pin
   
   _currentPin = 0;
+  _ms = false;
+}
+
+AnalogMux::AnalogMux(int MS0, int MS1, int MS2, int SS0, int SS1, int SS2, int readpin){
+    // constructor that sets up a master slave arrangement on the 4051s
+    
+    // do the usual constructor anyway.
+    AnalogMux::AnalogMux(AMDM_MS0, AMDM_MS1, AMDM_MS2, readpin);
+    
+    // now set the additional pins and vars for the slave chips
+    pinMode(SS0, OUTPUT);
+    pinMode(SS1, OUTPUT);
+    pinMode(SS2, OUTPUT);
+    
+    _SS0 = SS0;
+    _SS1 = SS1;
+    _SS2 = SS2;
+    
+    _ms = true;
 }
 
 AnalogMux::AnalogMux(int readpin){
@@ -32,8 +51,19 @@ void AnalogMux::SelectPin(int pin) {
   // there is no error checking on this so if you go over 7 it will break
 
   _currentPin = pin;
-  WriteSelectionPins(_MS0, _MS1, _MS2, pin);
+  
+    if (_ms) {
+        // we need to consider multi mux arrangement
 
+        // the master is the significant bit so it determines which
+        // of the slave 4051s to route to, after that it's simply determining
+        // which pin on the slave IC needs to be switched to and then do with
+        // it what you will.
+        WriteSelectionPins(_MS0, _MS1, _MS2, (pin / 8));
+        WriteSelectionPins(_SS0, _SS1, _SS2, (pin % 8));
+    } else {
+        WriteSelectionPins(_MS0, _MS1, _MS2, pin);
+    }
 }
 
 int AnalogMux::AnalogRead() {
@@ -94,11 +124,11 @@ void AnalogDeMux::AnalogWrite(int wpin, int value) {
   
 
 // helper functions
-void WriteSelectionPins(int MS0, int MS1, int MS2, int pin) {
+void WriteSelectionPins(int S0, int S1, int S2, int pin) {
 
-  digitalWrite(MS0, (pin & 0x01)); // set the lowest bit
-  digitalWrite(MS1, ((pin>>1) & 0x01)); // set the middle bit
-  digitalWrite(MS2, ((pin>>2) & 0x01)); // set the highest bit.
+  digitalWrite(S0, (pin & 0x01)); // set the lowest bit
+  digitalWrite(S1, ((pin>>1) & 0x01)); // set the middle bit
+  digitalWrite(S2, ((pin>>2) & 0x01)); // set the highest bit.
 
 }
 

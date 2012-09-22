@@ -1,22 +1,20 @@
-Changelog
-==========
+#Changelog
 
-Version 0.3 (22 September, 2012)
-----------------------------------
+## Version 0.3 (22 September, 2012)
+
+* refactored code to prep for multiple multiplexer arrangement
 * Added new constructors to handle default vars for S0, S1, S2
 * confirmed Arduino 1.0 working
 * updated examples to .ino files
 
 
-Version 0.2 (1, May 2011)
--------------------------
+## Version 0.2 (1, May 2011)
 
 * fixed a range of issues with the Demux side of things - not least a namespace
 issue with analogWrite
 * created examples for demux side including fritzing examples and code examples
 
-Version 0.1 (28, March 2011)
-----------------------------
+## Version 0.1 (28, March 2011)
 
 * created the basic scaffolding of the library and got it to compile in
 arduino IDE.
