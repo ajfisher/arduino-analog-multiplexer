@@ -1,3 +1,13 @@
+Changelog
+==========
+
+Version 0.3 (22 September, 2012)
+----------------------------------
+* Added new constructors to handle default vars for S0, S1, S2
+* confirmed Arduino 1.0 working
+* updated examples to .ino files
+
+
 Version 0.2 (1, May 2011)
 -------------------------
 
@@ -13,5 +23,9 @@ arduino IDE.
 * stubbed out broad functions
 * compiles in standard IDE
 
-TODO: Set up examples
+TODO:
+-----
+
+* Set up examples better
+* port multi multiplexers
 

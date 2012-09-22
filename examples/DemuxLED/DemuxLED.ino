@@ -1,8 +1,12 @@
 /**
 
 Author: Andrew Fisher
-Version: 0.1
-Date: May 1, 2011
+Version: 0.1.1
+Date: 22 September, 2012
+
+History:
+22 September, 2012 - Andrew Fisher, Updates to Arduino 1.0
+May 1, 2011 - Andrew Fisher, Original
 
 Uses the analog multiplexer library to control some LEDs
 

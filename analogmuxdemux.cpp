@@ -1,10 +1,11 @@
-#include "WProgram.h"
+#include "Arduino.h"
 #include "analogmuxdemux.h"
 
 // parts adapted from elements at: http://tomekness.files.wordpress.com/2007/02/analog_multiplexer_demultiplexer_4051.pdf
 
 AnalogMux::AnalogMux(int S0, int S1, int S2, int readpin){
-  // constructor
+  // Construct the AnalogMux object using the various digital pins
+  // which are then set as part of this.
 
   pinMode(S0, OUTPUT);
   pinMode(S1, OUTPUT);
@@ -17,6 +18,13 @@ AnalogMux::AnalogMux(int S0, int S1, int S2, int readpin){
   _readpin = readpin; // don't need to set this as it's an analog pin
   
   _currentPin = 0;
+}
+
+AnalogMux::AnalogMux(int readpin){
+    // Alternative constructor which assumes the default digital pins
+    // for set up and calls the main constructor with them.
+    AnalogMux::AnalogMux(AMDM_S0, AMDM_S1, AMDM_S2, readpin);
+    
 }
 
 void AnalogMux::SelectPin(int pin) {
@@ -54,6 +62,14 @@ AnalogDeMux::AnalogDeMux(int S0, int S1, int S2, int writepin){
   _writepin = writepin; // don't need to set this as it's an analog pin
 
 }
+
+AnalogDeMux::AnalogDeMux(int writepin){
+    // Alternative constructor which assumes the default digital pins
+    // for set up and calls the main constructor with them.
+    AnalogDeMux::AnalogDeMux(AMDM_S0, AMDM_S1, AMDM_S2, writepin);
+    
+}
+
 
 void AnalogDeMux::SelectPin(int pin) {
   // sets the required pin on using selection pins
