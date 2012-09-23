@@ -25,7 +25,7 @@ appropriately.
 #define NO_PINS 3 
 
 
-// set up the DeMux ready to be used. Watch the order of S0, S1 and S2. 
+// set up the Muxer ready to be used. Watch the order of S0, S1 and S2. 
 AnalogMux amux(4,3,2, READPIN);
 
 void setup() {  
@@ -41,16 +41,14 @@ void loop() {
     for (int pinno=0; pinno < NO_PINS; pinno++){
 
         amux.SelectPin(pinno); // choose the pin you want to send signal to off the DeMux
-        int reading = amux.AnalogRead();
+        uint16_t reading = amux.AnalogRead();
         Serial.print("Pin: ");
         Serial.print(pinno);
         Serial.print(" Value: ");
         Serial.print(reading);
         Serial.print(" ");
-
-        delay(10);
     }
-    Serial.println("");
-    delay(1000);
+    Serial.println("-----");
+    delay(5000);
 }
 

@@ -15,47 +15,49 @@
 class AnalogMux
 {
     public:
-      AnalogMux(int MS0, int MS1, int MS2, int readpin);
-      AnalogMux(int MS0, int MS1, int MS2, int SS0, int SS1, int SS2, int readpin);
-      AnalogMux(int readpin);
-      int AnalogRead(int pin);
-      int AnalogRead();
-      void SelectPin(int pin);
+        AnalogMux(uint8_t MS0, uint8_t MS1, uint8_t MS2, uint8_t readpin);
+        AnalogMux(uint8_t MS0, uint8_t MS1, uint8_t MS2, uint8_t SS0, uint8_t SS1, uint8_t SS2, uint8_t readpin);
+        AnalogMux(uint8_t readpin);
+        uint16_t AnalogRead(uint8_t pin);
+        uint16_t AnalogRead();
+        void SelectPin(uint8_t pin);
     private:
-      int   _readpin; // which input pin is being used by the arduino to read state
-      int   _MS0;   // MSB selector for the master controller
-      int   _MS1;   // Centre bit selector for the master controller
-      int   _MS2;   // LSB selector for the master controller
-      int   _SS0;   // MSB selector for the slave controller
-      int   _SS1;   // Centre bit selector for the slave controller
-      int   _SS2;   // LSB selector for the slave controller
-      int   _currentPin; // which pin on the multiplexer are we looking at.
-      bool  _ms;    // are we a master slave arrangement
+        void SetupMaster(uint8_t MS0, uint8_t MS1, uint8_t MS2, uint8_t readpin);
+
+        uint8_t   _readpin; // which input pin is being used by the arduino to read state
+        uint8_t   _MS0;   // MSB selector for the master controller
+        uint8_t   _MS1;   // Centre bit selector for the master controller
+        uint8_t   _MS2;   // LSB selector for the master controller
+        uint8_t   _SS0;   // MSB selector for the slave controller
+        uint8_t   _SS1;   // Centre bit selector for the slave controller
+        uint8_t   _SS2;   // LSB selector for the slave controller
+        uint8_t   _currentPin; // which pin on the multiplexer are we looking at.
+        bool  _ms;    // are we a master slave arrangement
 };
 
 
 class AnalogDeMux
 {
     public:
-      AnalogDeMux(int MS0, int MS1, int MS2, int writepin);
-      AnalogDeMux(int MS0, int MS1, int MS2, int SS0, int SS1, int SS2, int writepin);
-      AnalogDeMux(int writepin);
-      void AnalogWrite(int value);
-      void AnalogWrite(int wpin, int value);
-      void SelectPin(int pin);
+      AnalogDeMux(uint8_t MS0, uint8_t MS1, uint8_t MS2, uint8_t writepin);
+      AnalogDeMux(uint8_t MS0, uint8_t MS1, uint8_t MS2, uint8_t SS0, uint8_t SS1, uint8_t SS2, uint8_t writepin);
+      AnalogDeMux(uint8_t writepin);
+      void AnalogWrite(uint8_t value);
+      void AnalogWrite(uint8_t wpin, uint8_t value);
+      void SelectPin(uint8_t pin);
     
     private:
-      int _writepin; // which input pin is being used by the arduino to write state
-      int _MS0; // MSB selector for the master controller
-      int _MS1; // Centre bit selector for the master controller
-      int _MS2; // LSB selector for the master controller
-      int _SS0; // MSB selector for the slave controller
-      int _SS1; // Centre bit selector for the slave controller
-      int _SS2; // LSB selector for the slave controller
-      int _currentPin; // which pin on the multiplexer are we looking at.
+      uint8_t _writepin; // which input pin is being used by the arduino to write state
+      uint8_t _MS0; // MSB selector for the master controller
+      uint8_t _MS1; // Centre bit selector for the master controller
+      uint8_t _MS2; // LSB selector for the master controller
+      uint8_t _SS0; // MSB selector for the slave controller
+      uint8_t _SS1; // Centre bit selector for the slave controller
+      uint8_t _SS2; // LSB selector for the slave controller
+      uint8_t _currentPin; // which pin on the multiplexer are we looking at.
 };
 
-void WriteSelectionPins(int S0, int S1, int S2, int pin);
+void WriteSelectionPins(uint8_t S0, uint8_t S1, uint8_t S2, uint8_t pin);
 
 #endif
 

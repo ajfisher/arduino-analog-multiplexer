@@ -108,15 +108,19 @@ To make this work, plug your master into 2,3,4 per normal, connect all of the sl
 
 At this point it pretty much works as normal. Note that your master can't be addressed directly now, however you get to have up to 64 analog inputs.
 
-#Examples
-##Demultiplexer (writing)
+# Examples
+## Simple Demultiplexer (writing)
 
 - example-write-schematic.fz (fritzing example)
 - Demux LED (Arduino code example)
 
-##Multiplexer (reading)
+## Simple Multiplexer (reading)
 
 - Mux Pot (Arduino code example)
+
+## Multi Multiplexer (reading)
+
+- Multi Muxer (Arduino Code example)
 
 #TODO:
 

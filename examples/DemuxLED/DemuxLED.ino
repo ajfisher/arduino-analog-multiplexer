@@ -1,10 +1,11 @@
 /**
 
 Author: Andrew Fisher
-Version: 0.1.1
+Version: 0.1.2
 Date: 22 September, 2012
 
 History:
+23 September, 2012 - Updates for the change to Demuxer arrangement
 22 September, 2012 - Andrew Fisher, Updates to Arduino 1.0
 May 1, 2011 - Andrew Fisher, Original
 

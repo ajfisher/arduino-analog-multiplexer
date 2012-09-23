@@ -1,12 +1,16 @@
 #Changelog
 
+## Version 0.4 (23 September, 2012)
+
+* really fixed up the multiple multiplexer arrangement including fixing a bug on selectors due to crappy constructors.
+* added a multi multiplexer demo as well.
+
 ## Version 0.3 (22 September, 2012)
 
 * refactored code to prep for multiple multiplexer arrangement
 * Added new constructors to handle default vars for S0, S1, S2
 * confirmed Arduino 1.0 working
 * updated examples to .ino files
-
 
 ## Version 0.2 (1, May 2011)
 
@@ -25,5 +29,4 @@ TODO:
 -----
 
 * Set up examples better
-* port multi multiplexers
 
