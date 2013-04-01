@@ -1,5 +1,10 @@
 #Changelog
 
+## Version 0.4.1 (1 April, 2013)
+
+* updates to the examples in order for them to work with codebender.cc
+* included make files in order to compile examples using Arduino.mk
+
 ## Version 0.4 (23 September, 2012)
 
 * really fixed up the multiple multiplexer arrangement including fixing a bug on selectors due to crappy constructors.

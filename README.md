@@ -124,7 +124,6 @@ At this point it pretty much works as normal. Note that your master can't be add
 
 #TODO:
 
-- Write examples for analog read and write
-- Make code a little less repetitive
-- Make the code deal with switching between MUX and DEMUX
-- Add multiple 4051s
+- Make MuxDemux class which each of the others inherits from to reduce code
+- Write a Multi Demuxer example
+- Make the code deal with switching between MUX and DEMUX on the fly

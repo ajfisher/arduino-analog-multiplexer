@@ -1,10 +1,11 @@
 /**
 
 Author: Andrew Fisher
-Version: 0.1.2
-Date: 22 September, 2012
+Version: 0.1.3
+Date: 1 April, 2013
 
 History:
+1 April, 2013 - Minor updates to standardise the code.
 23 September, 2012 - Updates for the change to Demuxer arrangement
 22 September, 2012 - Andrew Fisher, Updates to Arduino 1.0
 May 1, 2011 - Andrew Fisher, Original
@@ -14,11 +15,9 @@ Uses the analog multiplexer library to control some LEDs
 See the fritzing circuit in the code library for set up.
 **/
 
-#include <analogmuxdemux.h>
-
+#include "analogmuxdemux.h"
 
 #define WRITEPIN 6 // connect to a PWM pin in order to be able to output an analog signal
-
 #define NO_PINS 3 // how many output pins are you going to use on the DeMux? This exmample uses 3.
 
 // set up the DeMux ready to be used. Watch the order of S0, S1 and S2. 

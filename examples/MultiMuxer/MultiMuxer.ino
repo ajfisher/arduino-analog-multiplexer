@@ -1,10 +1,11 @@
 /**
 
 Author: Andrew Fisher
-Version: 0.1
-Date: 23 September, 2012
+Version: 0.1.1
+Date: 1 April, 2013
 
 History:
+1 April 2013 - Minor changes to bring into standard form.
 23 September, 2012 - Andrew Fisher, First version
 
 Uses the analog multiplexer library to read multiple potentiometers off multiple
@@ -20,7 +21,7 @@ for a maximum of 64 input channels.
 
 **/
 
-#include <analogmuxdemux.h>
+#include "analogmuxdemux.h"
 
 
 #define READPIN 0 // What analog input on the arduino do you want?
@@ -54,7 +55,7 @@ void loop() {
   // and it's reading then wait a bit and do it again
     
     for (int pinno=0; pinno< NO_PINS; pinno++) {
-      amx.SelectPin(pinno);
+        amx.SelectPin(pinno);
         uint16_t reading = amx.AnalogRead();
         Serial.print("Pin: ");
         Serial.print(pinno);
@@ -62,8 +63,8 @@ void loop() {
         Serial.print(reading);
         Serial.println();             
     }
+
     Serial.println("---");
     delay(5000);
-
 }
 
