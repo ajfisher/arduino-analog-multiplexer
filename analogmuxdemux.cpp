@@ -104,7 +104,7 @@ AnalogDeMux::AnalogDeMux(uint8_t MS0, uint8_t MS1, uint8_t MS2, uint8_t writepin
 AnalogDeMux::AnalogDeMux(uint8_t writepin){
     // Alternative constructor which assumes the default digital pins
     // for set up and calls the main constructor with them.
-    AnalogDeMux::AnalogDeMux(AMDM_MS0, AMDM_MS1, AMDM_MS2, writepin);
+    AnalogDeMux(AMDM_MS0, AMDM_MS1, AMDM_MS2, writepin);
     
 }
 
