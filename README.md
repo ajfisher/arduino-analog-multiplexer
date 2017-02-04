@@ -44,7 +44,7 @@ eg:
 
     AnalogMux amux(0);
 
-The first constructor type specifies the values for S0, S1, S2 on the 4051 however the second version assumes S0=4, S1=3, S2=3 for digital outs.
+The first constructor type specifies the values for S0, S1, S2 on the 4051 however the second version assumes S0=4, S1=3, S2=2 for digital outs.
 
 ### Reading a specific pin from the IC
 
