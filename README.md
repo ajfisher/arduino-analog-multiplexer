@@ -1,5 +1,7 @@
 # Analog MuxDemux library
 
+[![Join the chat at https://gitter.im/ajfisher/arduino-analog-multiplexer](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ajfisher/arduino-analog-multiplexer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 This library is used in order to abstract away a few of the details to do with analog multiplexing and demultiplexing. It assumes the following:
 
 - The multiplexer is analog and is compatible with the 4051 type (ie: 8 analog inputs or outputs, selected by setting HIGH/LOW on 3 digital input pins for 3 bit resolution and an input selection pin active LOW)
